@@ -1,28 +1,34 @@
 'use client';
 import React from "react";
 import Image from "next/image";
+import Link from "next/link"; 
 
 type Feature = {
   title: string;
   description: string;
+  link: string; 
 };
 
 const features: Feature[] = [
   {
     title: "Task Assignment",
     description: "Assign tasks with deadlines, priorities, and descriptions.",
+    link: "/task-assignment",  
   },
   {
     title: "Progress Tracking",
     description: "Monitor task completion rates and employee productivity.",
+    link: "/progress-tracking",  
   },
   {
     title: "Performance Reports",
     description: "Generate reports to analyze productivity.",
+    link: "/performance-reports", 
   },
   {
     title: "Employee Feedback",
     description: "Collect and analyze employee satisfaction surveys.",
+    link: "/employee-feedback", 
   },
 ];
 
@@ -52,7 +58,11 @@ const Home: React.FC = () => {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
           {features.map((feature, index) => (
             <div key={index} style={{ border: "1px solid #ddd", padding: "20px", borderRadius: "5px" }}>
-              <h3 style={{ fontSize: "1.5rem", color: "#0070f3" }}>{feature.title}</h3>
+              <Link href={feature.link}>
+                <h3 style={{ fontSize: "1.5rem", color: "#0070f3", cursor: "pointer" }}>
+                  {feature.title}
+                </h3>
+              </Link>
               <p style={{ fontSize: "1rem", color: "#555" }}>{feature.description}</p>
             </div>
           ))}
