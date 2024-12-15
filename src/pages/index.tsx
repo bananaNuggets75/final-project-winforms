@@ -78,6 +78,11 @@ const Home: React.FC = () => {
           Learn More
         </button>
       </section>
+
+      {/* Footer Section */}
+      <footer style={{ textAlign: "center", marginTop: "40px", color: "#999" }}>
+        <p>&copy; 2024 TaskFlow. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
