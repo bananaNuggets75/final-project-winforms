@@ -5,24 +5,29 @@ import Link from "next/link";
 type Feature = {
   title: string;
   description: string;
+  link: string; // Added link field to the Feature type
 };
 
 const features: Feature[] = [
   {
     title: "Task Assignment",
     description: "Assign tasks with deadlines, priorities, and descriptions.",
+    link: "/dashboard",
   },
   {
     title: "Progress Tracking",
     description: "Monitor task completion rates and employee productivity.",
+    link: "/progress-tracking", // Link for Progress Tracking page
   },
   {
     title: "Performance Reports",
     description: "Generate reports to analyze productivity.",
+    link: "/performance-reports", // Link for Performance Reports page
   },
   {
     title: "Employee Feedback",
     description: "Collect and analyze employee satisfaction surveys.",
+    link: "/employee-feedback", // Link for Employee Feedback page
   },
 ];
 
@@ -55,7 +60,7 @@ const Home: React.FC = () => {
               <h3 style={{ fontSize: "1.5rem", color: "#0070f3" }}>{feature.title}</h3>
               <p style={{ fontSize: "1rem", color: "#555" }}>{feature.description}</p>
               {/* Link each feature to a relevant page */}
-              <Link href={`/${feature.title.toLowerCase().replace(/\s+/g, '-')}`} style={{ color: "#0070f3", textDecoration: "underline" }}>
+              <Link href={feature.link} style={{ color: "#0070f3", textDecoration: "underline" }}>
                 Learn More
               </Link>
             </div>
