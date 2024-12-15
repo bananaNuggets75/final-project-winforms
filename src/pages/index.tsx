@@ -59,7 +59,25 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      
+      {/* Call to Action Section */}
+      <section style={{ textAlign: "center", marginBottom: "40px" }}>
+        <h3 style={{ fontSize: "1.5rem", color: "#333" }}>Get Started with TaskFlow</h3>
+        <p>Empower your team to achieve more!</p>
+        <button
+          style={{
+            backgroundColor: "#0070f3",
+            color: "#fff",
+            border: "none",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "1rem",
+          }}
+          onClick={() => alert("Feature coming soon!")}
+        >
+          Learn More
+        </button>
+      </section>
     </div>
   );
 };
