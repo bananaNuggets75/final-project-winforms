@@ -46,6 +46,19 @@ const Home: React.FC = () => {
         </p>
       </section>
 
+      {/* Features Section */}
+      <section style={{ marginBottom: "40px" }}>
+        <h2 style={{ fontSize: "1.8rem", color: "#333" }}>Key Features</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
+          {features.map((feature, index) => (
+            <div key={index} style={{ border: "1px solid #ddd", padding: "20px", borderRadius: "5px" }}>
+              <h3 style={{ fontSize: "1.5rem", color: "#0070f3" }}>{feature.title}</h3>
+              <p style={{ fontSize: "1rem", color: "#555" }}>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       
     </div>
   );
