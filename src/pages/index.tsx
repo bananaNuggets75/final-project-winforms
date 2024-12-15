@@ -1,8 +1,34 @@
+'use client';
+import React from "react";
 import Image from "next/image";
 
-export default function Home() {
+type Feature = {
+  title: string;
+  description: string;
+};
+
+const features: Feature[] = [
+  {
+    title: "Task Assignment",
+    description: "Assign tasks with deadlines, priorities, and descriptions.",
+  },
+  {
+    title: "Progress Tracking",
+    description: "Monitor task completion rates and employee productivity.",
+  },
+  {
+    title: "Performance Reports",
+    description: "Generate reports to analyze productivity.",
+  },
+  {
+    title: "Employee Feedback",
+    description: "Collect and analyze employee satisfaction surveys.",
+  },
+];
+
+const Home: React.FC = () => {
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", margin: "20px", lineHeight: "1.6" }}>
+    <div className="container" style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
       {/* Header Section */}
       <header style={{ textAlign: "center", marginBottom: "40px" }}>
         <h1 style={{ fontSize: "2.5rem", color: "#333" }}>TaskFlow</h1>
@@ -20,41 +46,9 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Features Section */}
-      <section style={{ marginBottom: "40px" }}>
-        <h2 style={{ fontSize: "1.8rem", color: "#333" }}>Key Features</h2>
-        <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
-          <li><strong>Task Assignment:</strong> Assign tasks with deadlines, priorities, and descriptions.</li>
-          <li><strong>Progress Tracking:</strong> Monitor task completion rates and employee productivity.</li>
-          <li><strong>Performance Reports:</strong> Generate reports to analyze productivity.</li>
-          <li><strong>Employee Feedback:</strong> Collect and analyze employee satisfaction surveys.</li>
-        </ul>
-      </section>
-
-      {/* Call to Action Section */}
-      <section style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h3 style={{ fontSize: "1.5rem", color: "#333" }}>Get Started with TaskFlow</h3>
-        <p>Empower your team to achieve more!</p>
-        <button
-          style={{
-            backgroundColor: "#0070f3",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "1rem",
-          }}
-          onClick={() => alert("Feature coming soon!")}
-        >
-          Learn More
-        </button>
-      </section>
-
-      {/* Footer Section */}
-      <footer style={{ textAlign: "center", marginTop: "40px", color: "#999" }}>
-        <p>&copy; 2024 TaskFlow. All rights reserved.</p>
-      </footer>
+      
     </div>
   );
-}
+};
+
+export default Home;
