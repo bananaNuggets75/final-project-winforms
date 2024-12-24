@@ -1,99 +1,82 @@
-'use client';
-import React from "react";
 import Link from "next/link";
+import Navbar from "../../components/navbar";
 
-type Feature = {
-  title: string;
-  description: string;
-  link: string; // Added link field to the Feature type
-};
-
-const features: Feature[] = [
-  {
-    title: "Task Assignment",
-    description: "Assign tasks with deadlines, priorities, and descriptions.",
-    link: "/dashboard",
-  },
-  {
-    title: "Progress Tracking",
-    description: "Monitor task completion rates and employee productivity.",
-    link: "/progress-tracking", // Link for Progress Tracking page
-  },
-  {
-    title: "Performance Reports",
-    description: "Generate reports to analyze productivity.",
-    link: "/performance-reports", // Link for Performance Reports page
-  },
-  {
-    title: "Employee Feedback",
-    description: "Collect and analyze employee satisfaction surveys.",
-    link: "/employee-feedback", // Link for Employee Feedback page
-  },
-];
-
-const Home: React.FC = () => {
+export default function Home() {
   return (
-    <div className="container" style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
-      {/* Header Section */}
-      <header style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h1 style={{ fontSize: "2.5rem", color: "#333" }}>TaskFlow</h1>
-        <p style={{ fontSize: "1.2rem", color: "#666" }}>
-          Employee Task Management and Feedback System
+    <div>
+
+      <div className="min-h-screen flex flex-col items-center justify-between p-8 pb-20 sm:p-20 font-sans bg-gray-100">
+    {/* Header */}
+    <header className="w-full text-center py-6 bg-blue-600 text-white">
+      <h1 className="text-2xl sm:text-4xl font-bold">Task Flow</h1>
+      <p className="text-sm sm:text-base">
+        TaskFlow
+      </p>
+    </header>
+
+    {/* Main Content */}
+    <main className="flex flex-col items-center justify-center gap-12 flex-grow text-center">
+      <div className="max-w-xl">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
+          Welcome to TaskFlow
+        </h2>
+        <p className="text-sm sm:text-base text-gray-600">
+          Manage employee performance, track skills, and identify high-potential employees for promotion, all in one platform.
         </p>
-      </header>
+      </div>
 
-      {/* Introduction Section */}
-      <section style={{ marginBottom: "40px" }}>
-        <h2 style={{ fontSize: "1.8rem", color: "#333" }}>Welcome to TaskFlow</h2>
-        <p>
-          TaskFlow helps managers assign tasks, track employee performance, and gather feedback
-          to improve workplace productivity and satisfaction.
-        </p>
-      </section>
-
-      {/* Features Section */}
-      <section style={{ marginBottom: "40px" }}>
-        <h2 style={{ fontSize: "1.8rem", color: "#333" }}>Key Features</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
-          {features.map((feature, index) => (
-            <div key={index} style={{ border: "1px solid #ddd", padding: "20px", borderRadius: "5px" }}>
-              <h3 style={{ fontSize: "1.5rem", color: "#0070f3" }}>{feature.title}</h3>
-              <p style={{ fontSize: "1rem", color: "#555" }}>{feature.description}</p>
-              {/* Link each feature to a relevant page */}
-              <Link href={feature.link} style={{ color: "#0070f3", textDecoration: "underline" }}>
-                Learn More
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h3 style={{ fontSize: "1.5rem", color: "#333" }}>Get Started with TaskFlow</h3>
-        <p>Empower your team to achieve more!</p>
-        <button
-          style={{
-            backgroundColor: "#0070f3",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "1rem",
-          }}
-          onClick={() => alert("Feature coming soon!")}
+      {/* Navigation Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
+        <Link
+          href="/dashboard"
+          className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition text-left"
         >
-          Learn More
-        </button>
-      </section>
+          <h3 className="text-lg font-semibold text-blue-600">Dashboard</h3>
+          <p className="text-sm text-gray-600">
+            View performance trends and employee highlights.
+          </p>
+        </Link>
+        <Link
+          href="/employee-satisfaction"
+          className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition text-left"
+        >
+          <h3 className="text-lg font-semibold text-blue-600">
+            Employee Satisfaction
+          </h3>
+          <p className="text-sm text-gray-600">
+            Manage employee skills, certifications, and feedback.
+          </p>
+        </Link>
+        <Link
+          href="/performance-analysis"
+          className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition text-left"
+        >
+          <h3 className="text-lg font-semibold text-blue-600">
+            Performance Reviews
+          </h3>
+          <p className="text-sm text-gray-600">
+            Conduct and track performance evaluations.
+          </p>
+        </Link>
+        <Link
+          href="/task-tracking"
+          className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition text-left"
+        >
+          <h3 className="text-lg font-semibold text-blue-600">Reports</h3>
+          <p className="text-sm text-gray-600">
+            Generate insights and download team performance data.
+          </p>
+        </Link>
+      </div>
+    </main>
 
-      {/* Footer Section */}
-      <footer style={{ textAlign: "center", marginTop: "40px", color: "#999" }}>
-        <p>&copy; 2024 TaskFlow. All rights reserved.</p>
-      </footer>
-    </div>
+    {/* Footer */}
+    <footer className="w-full text-center py-4 bg-gray-200">
+      <p className="text-xs text-gray-600">
+        © {new Date().getFullYear()} TalentHub. All Rights Reserved.
+      </p>
+    </footer>
+  </div>
+</div>
   );
-};
-
-export default Home;
+}
