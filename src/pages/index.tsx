@@ -2,86 +2,44 @@
 import React from "react";
 import Link from "next/link";
 
-type Feature = {
-  title: string;
-  description: string;
-  link: string; // Added link field to the Feature type
-};
-
-const features: Feature[] = [
-  {
-    title: "Task Assignment",
-    description: "Assign tasks with deadlines, priorities, and descriptions.",
-    link: "/dashboard",
-  },
-  {
-    title: "Progress Tracking",
-    description: "Monitor task completion rates and employee productivity.",
-    link: "/progress-tracking", // Link for Progress Tracking page
-  },
-  {
-    title: "Performance Reports",
-    description: "Generate reports to analyze productivity.",
-    link: "/performance-reports", // Link for Performance Reports page
-  },
-  {
-    title: "Employee Feedback",
-    description: "Collect and analyze employee satisfaction surveys.",
-    link: "/employee-feedback", // Link for Employee Feedback page
-  },
-];
-
 const Home: React.FC = () => {
   return (
-    <div className="container" style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
+    <div className="container mx-auto p-4">
       {/* Header Section */}
-      <header style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h1 style={{ fontSize: "2.5rem", color: "#333" }}>TaskFlow</h1>
-        <p style={{ fontSize: "1.2rem", color: "#666" }}>
+      <header className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-gray-800">TaskFlow</h1>
+        <p className="text-lg text-gray-600">
           Employee Task Management and Feedback System
         </p>
       </header>
 
-      {/* Introduction Section */}
-      <section style={{ marginBottom: "40px" }}>
-        <h2 style={{ fontSize: "1.8rem", color: "#333" }}>Welcome to TaskFlow</h2>
-        <p>
-          TaskFlow helps managers assign tasks, track employee performance, and gather feedback
-          to improve workplace productivity and satisfaction.
-        </p>
-      </section>
-
-      {/* Features Section */}
-      <section style={{ marginBottom: "40px" }}>
-        <h2 style={{ fontSize: "1.8rem", color: "#333" }}>Key Features</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
-          {features.map((feature, index) => (
-            <div key={index} style={{ border: "1px solid #ddd", padding: "20px", borderRadius: "5px" }}>
-              <h3 style={{ fontSize: "1.5rem", color: "#0070f3" }}>{feature.title}</h3>
-              <p style={{ fontSize: "1rem", color: "#555" }}>{feature.description}</p>
-              {/* Link each feature to a relevant page */}
-              <Link href={feature.link} style={{ color: "#0070f3", textDecoration: "underline" }}>
-                Learn More
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Navigation Section */}
+      <nav className="text-center mb-8">
+        <ul className="space-y-4">
+          <li>
+            <Link href="/dashboard" className="text-blue-600 hover:underline text-lg">
+              Fine Management and Payment
+            </Link>
+          </li>
+          <li>
+            <Link href="/driversProfile" className="text-blue-600 hover:underline text-lg">
+              Drivers Profile and Violation History
+            </Link>
+          </li>
+          <li>
+            <Link href="/violationReporting" className="text-blue-600 hover:underline text-lg">
+              Violation and Reporting
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
       {/* Call to Action Section */}
-      <section style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h3 style={{ fontSize: "1.5rem", color: "#333" }}>Get Started with TaskFlow</h3>
-        <p>Empower your team to achieve more!</p>
+      <section className="text-center mb-8">
+        <h3 className="text-lg font-semibold text-gray-800">Get Started with TaskFlow</h3>
+        <p className="text-gray-600">Empower your team to achieve more!</p>
         <button
-          style={{
-            backgroundColor: "#0070f3",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "1rem",
-          }}
+          className="bg-blue-600 text-white px-4 py-2 rounded mt-4 hover:bg-blue-700"
           onClick={() => alert("Feature coming soon!")}
         >
           Learn More
@@ -89,7 +47,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Footer Section */}
-      <footer style={{ textAlign: "center", marginTop: "40px", color: "#999" }}>
+      <footer className="text-center text-gray-500 mt-8">
         <p>&copy; 2024 TaskFlow. All rights reserved.</p>
       </footer>
     </div>
